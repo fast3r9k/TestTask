@@ -79,11 +79,11 @@ namespace HelperClass
                     req.Timeout = int.MaxValue;
                     WebResponse response = req.GetResponse();
                     string xml = string.Empty;
-                    using (Stream reader = response.GetResponseStream())
+                    using (Stream myReader = response.GetResponseStream())
                     {
-                        using (StreamReader readerr = new StreamReader(reader))
+                        using (StreamReader MyNewReader = new StreamReader(myReader))
                         {
-                            xml = readerr.ReadToEnd();
+                            xml = MyNewReader.ReadToEnd();
                         }
                     }
                     XDocument xdoc = XDocument.Parse(xml);
